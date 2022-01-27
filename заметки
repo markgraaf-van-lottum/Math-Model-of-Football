@@ -1,0 +1,20 @@
+Альтернативный вариант Фаимлий футболистов на поле
+.stadion .pole player::before {
+	content: attr(id);
+	position: absolute;
+	/*background: #128a00;*/
+	/*background: #FFF4;*/
+	color: #fff;
+	font-weight: 300;
+	letter-spacing: 0.5px;
+	text-shadow: 1px 1px 3px #000, 1px 1px 2px #000a;
+	padding: 1px 6px;
+	border-radius: 4px;
+	font-size: 16px;
+	line-height: 1;
+	top: 126%;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	box-shadow: 1px 1px 1px 0 #0006, inset 1px 1px 0 0 #fff5;
+}

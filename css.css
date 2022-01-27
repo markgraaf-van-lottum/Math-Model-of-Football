@@ -1,0 +1,214 @@
+body {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	background: #222;
+	color: #bbb;
+	margin: 0;
+	cursor: default;
+	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Nunito', sans-serif;
+	user-select: none;
+}
+th {
+	font-weight: 400;
+	font-size: 24px;
+	padding: 0 0 16px 0;
+	position: relative;
+}
+table {
+	border-spacing: 0;
+	margin: 0 2vw;
+	padding: 22px 12px;
+}
+tr {
+	line-height: 24px;
+}
+td {
+	position: relative;
+	padding: 0;
+	text-align: center;
+	white-space: nowrap;
+}
+#goals_home::after {
+	content: ':';
+	position: absolute;
+	top: -3px;
+	left: 0;
+	right: 0;
+}
+#goals_home,
+#goals_away {
+	font-size: 36px;
+	font-weight: 600;
+	padding: 0 10px;
+	vertical-align: -5px;
+}
+tr.ball td:first-child::before {
+	content: '';
+	position: absolute;
+	top: 3px;
+	right: calc(100% + 18px);
+	width: 16px;
+	height: 16px;
+	background: url(img/ball.png);
+	background-size: contain;
+	opacity: 0.7;
+	border-radius: 50%;
+	box-shadow: 0 0 1px 1px #fff;
+}
+#play {
+	display: inline-block;
+	width: 90px;
+	color: #333;
+	padding: 6px 0;
+	font-size: 18px;
+	margin: 20px 12px 0 0;
+	background: #FFCA28;
+	border-radius: 6px;
+	cursor: pointer;
+}
+.stadion {
+	position: relative;
+	width: 100%;
+	max-width: 1240px;
+	font-size: 0;
+}
+.stadion .pole {
+	position: absolute;
+	top: 3.7%;
+	bottom: 3.7%;
+	left: 3.63%;
+	right: 3.63%;
+}
+.pole player {
+	display: block;
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	transform: translateY(-50%);
+	background: #159800;
+	box-shadow: 0 0 4px 2px #159800;
+}
+/* на мяче */
+.pole player.ball_control,
+.pole player.ball_control__opponent {
+	opacity: 1;
+}
+/* неподалеку от мяча (5-10м) */
+.pole player.from_ball_1 span {
+	opacity: 0.6;
+}
+.pole player.from_ball_1::before {
+	color: #FFF9;
+}
+/* далековато от мяча (10-30м) */
+.pole player.from_ball_2 span {
+	opacity: 0.3;
+}
+.pole player.from_ball_2::before {
+	color: #FFF6;
+}
+/* далеко от мяча (30м+) */
+.pole player.from_ball_3 span {
+	opacity: 0.06;
+}
+.pole player.from_ball_3::before {
+	color: #FFF3;
+}
+.pole player.from_ball_ {
+	/*opacity: 0.7;*/
+}
+.pole player::before {
+	content: attr(id);
+	position: absolute;
+	background: #159800;
+	color: #fff;
+	font-weight: 300;
+	letter-spacing: 0.5px;
+	border-radius: 4px;
+	font-size: 16px;
+	line-height: 1;
+	top: 120%;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	box-shadow: 0 0 4px 2px #159800;
+}
+.pole player.ball_control::before,
+.pole player.ball_control__opponent::before {
+	text-shadow: 1px 1px 3px #000, 1px 1px 2px #000a;
+}
+.pole player span {
+	display: block;
+	/*width: 95%;*/
+	text-align: center;
+	font-family: 'Roboto Mono', sans-serif;
+	font-size: 14px;
+	letter-spacing: -1px;
+	line-height: 24px;
+	width: 24px;
+	height: 24px;
+	border: 2px solid;
+	border-radius: 50%;
+	box-shadow: 1px 1px 3px 0 #000b;
+}
+.pole .home_team player:not(.GK) span {
+	font-weight: 600;
+	border-color: #000;
+	background: #FFF;
+	color: #000;
+	/*transform: translateY(-32px);*/
+}
+.pole .away_team player:not(.GK) span {
+	border-color: #FFF;
+	/*background: #7E57C2;*/
+	color: #FFF;
+	/*transform: translateY(-5px);*/
+}
+.pole .GK span {
+	border-color: #000;
+	background: #333;
+	color: #FFF;
+}
+.pole .GK,
+.pole .CC {
+	top: 50%; }
+
+.pole .home_team .GK::before {
+	left: 66%; }
+.pole .home_team .GK {
+	left: 1.2%; }
+.pole .home_team .D {
+	left: 18%; }
+.pole .home_team .M {
+	left: 42%; }
+.pole .home_team .F {
+	left: 67%; }
+.pole .home_team .L {
+	top: 13%; }
+.pole .home_team .R {
+	top: 85%; }
+.pole .home_team .CL {
+	top: 37%; }
+.pole .home_team .CR {
+	top: 61%; }
+
+.pole .away_team .GK {
+	right: 1.2%; }
+.pole .away_team .D {
+	right: 18%; }
+.pole .away_team .M {
+	right: 42%; }
+.pole .away_team .F {
+	right: 67%; }
+.pole .away_team .L {
+	top: 85%; }
+.pole .away_team .R {
+	top: 13%; }
+.pole .away_team .CL {
+	top: 61%; }
+.pole .away_team .CR {
+	top: 37%; }

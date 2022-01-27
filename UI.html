@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Математическая Модель Футбола</title>
+	<link rel="stylesheet" type="text/css" href="css.css" media="all">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&family=Ubuntu:wght@300;400&family=Roboto:wght@300;400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&text=1234567890" rel="stylesheet">
+</head>
+<body>
+
+<table>
+	<thead>
+		<tr>
+			<th>Juventus</th>
+			<th>
+				<span id="goals_home"></span>
+				<span id="goals_away"></span>
+			</th>
+			<th>Fiorentina</th>
+		</tr>
+	</thead>
+	<tr class="ball">
+		<td></td>
+		<td id="shots">Удары</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="shots_on_goals">(в створ)</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="possession">Владение, %</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="passes">Пасы</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="crosses">Навесы</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="free_kicks">Штрафные удары</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="corners">Угловые</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="fouls">Нарушения</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="yellow_cards">Желтые Карточки</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="red_cards">Красные Карточки</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="tackles">Отборы</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="dribbles">Обыгрыши</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="offsides">Офсайды</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="6">
+			<div id="play">Играть</div>
+		</td>
+	</tr>
+</table>
+
+<div class="stadion">
+	<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 810">
+		<path fill="#159800" d="M0 0h1240v810H0z"/><circle cx="165" cy="405" r="100" stroke="#fff"/><circle cx="1075" cy="405" r="100" stroke="#fff"/><path fill="#159800" stroke="#fff" d="M1015 185h180v440h-180zM45 185h180v440H45z"/><path fill="#fff" d="M619.5 30h1v750h-1z"/><circle cx="620" cy="405" r="100" stroke="#fff"/><circle cx="620" cy="405" r="1.665" fill="#fff"/><path d="M55 30c0 5.523-4.477 10-10 10M1195 40c-5.52 0-10-4.477-10-10M1185 780c0-5.523 4.48-10 10-10M45 770c5.523 0 10 4.477 10 10" stroke="#fff"/><path fill="#fff" fill-opacity=".3" d="M19 365h26v80H19zM1195 365h26v80h-26z"/><path stroke="#fff" d="M45 305h60v200H45zM1135 305h60v200h-60z"/><circle cx="1075" cy="405" r="1.665" fill="#fff"/><circle cx="165" cy="405" r="1.665" fill="#fff"/><path stroke="#fff" d="M45 30h1150v750H45z"/>
+	</svg>
+
+	<div class="pole">
+		<div class="home_team">
+			<player class="GK from_ball_3" id="Buffon">
+				<span></span>
+			</player>
+			<player class="D L from_ball_3" id="Legrottaglie">
+				<span></span>
+			</player>
+			<player class="D CL from_ball_2" id="Chiellini">
+				<span></span>
+			</player>
+			<player class="D CR from_ball_2" id="Tudor">
+				<span></span>
+			</player>
+			<player class="D R from_ball_1" id="Birindelli">
+				<span></span>
+			</player>
+			<player class="M L from_ball_2" id="Nedved">
+				<span></span>
+			</player>
+			<player class="M CL from_ball_" id="Marchisio">
+				<span></span>
+			</player>
+			<player class="M CR from_ball_" id="Tacchinardi">
+				<span></span>
+			</player>
+			<player class="M R ball_control" id="Camoranesi">
+				<span></span>
+			</player>
+			<player class="F CL from_ball_2" id="Del Piero">
+				<span></span>
+			</player>
+			<player class="F CR" id="Trezeguet">
+				<span></span>
+			</player>
+		</div>
+		<div class="away_team">
+			<player class="GK" id="Frey">
+				<span></span>
+			</player>
+			<player class="D L" id="Pasqual">
+				<span></span>
+			</player>
+			<player class="D CL" id="Krøldrup">
+				<span></span>
+			</player>
+			<player class="D CR" id="Gamberini">
+				<span></span>
+			</player>
+			<player class="D R" id="Ujfalusi">
+				<span></span>
+			</player>
+			<player class="M L ball_control__opponent" id="Jørgensen">
+				<span></span>
+			</player>
+			<player class="M CL" id="Liverani">
+				<span></span>
+			</player>
+			<player class="M CR" id="Montolivo">
+				<span></span>
+			</player>
+			<player class="M R" id="Mutu">
+				<span></span>
+			</player>
+			<player class="F CL" id="Pazzini">
+				<span></span>
+			</player>
+			<player class="F CR" id="Toni">
+				<span></span>
+			</player>
+		</div>
+	</div>
+
+</div>
+<p1></p1>
+<p2></p2>
+<p3></p3>
+<p4></p4>
+<p5></p5>
+<p6></p6>
+<p7></p7>
+<p8></p8>
+<p9></p9>
+<p10></p10>
+<p11></p11>
+
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<script src="FMM.js"></script>
+</body>
+</html>
