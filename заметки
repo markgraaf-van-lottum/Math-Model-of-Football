@@ -1,4 +1,5 @@
-Альтернативный вариант Фаимлий футболистов на поле
+Альтернативный вариант Фамилий футболистов на поле
+
 .stadion .pole player::before {
 	content: attr(id);
 	position: absolute;
