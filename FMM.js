@@ -957,8 +957,40 @@ club2 = {
 ;
 // console.log(club1.squad[1]);
 
+// Форма
+document.querySelectorAll('.home_team player:not(.GK) span').forEach((element) => {element.style.color = club1.kitColor[0];});
+document.querySelectorAll('.away_team player:not(.GK) span').forEach((element) => {element.style.color = club2.kitColor[0];});
+document.querySelectorAll('.home_team player:not(.GK) span').forEach((element) => {element.style.background = club1.kitColor[1];});
+document.querySelectorAll('.away_team player:not(.GK) span').forEach((element) => {element.style.background = club2.kitColor[1];});
+document.querySelectorAll('.home_team player:not(.GK) span').forEach((element) => {element.style.borderColor = club1.kitColor[2];});
+document.querySelectorAll('.away_team player:not(.GK) span').forEach((element) => {element.style.borderColor = club2.kitColor[2];});
+
+
+// Номера игроков
+document.querySelector('#Buffon > span').innerHTML = club1.squad[0].number;
+document.querySelector('#Legrottaglie > span').innerHTML = club1.squad[1].number;
+document.querySelector('#Chiellini > span').innerHTML = club1.squad[2].number;
+document.querySelector('#Tudor > span').innerHTML = club1.squad[3].number;
+document.querySelector('#Birindelli > span').innerHTML = club1.squad[4].number;
+document.querySelector('#Nedved > span').innerHTML = club1.squad[5].number;
+document.querySelector('#Marchisio > span').innerHTML = club1.squad[6].number;
+document.querySelector('#Tacchinardi > span').innerHTML = club1.squad[7].number;
+document.querySelector('#Camoranesi > span').innerHTML = club1.squad[8].number;
+document.querySelector('#Del_Piero > span').innerHTML = club1.squad[9].number;
+document.querySelector('#Trezeguet > span').innerHTML = club1.squad[10].number;
+document.querySelector('#Frey > span').innerHTML = club2.squad[0].number;
+document.querySelector('#Pasqual > span').innerHTML = club2.squad[1].number;
+document.querySelector('#Krøldrup > span').innerHTML = club2.squad[2].number;
+document.querySelector('#Gamberini > span').innerHTML = club2.squad[3].number;
+document.querySelector('#Ujfalusi > span').innerHTML = club2.squad[4].number;
+document.querySelector('#Jørgensen > span').innerHTML = club2.squad[5].number;
+document.querySelector('#Liverani > span').innerHTML = club2.squad[6].number;
+document.querySelector('#Montolivo > span').innerHTML = club2.squad[7].number;
+document.querySelector('#Mutu > span').innerHTML = club2.squad[8].number;
+document.querySelector('#Toni > span').innerHTML = club2.squad[9].number;
 document.querySelector('#Pazzini > span').innerHTML = club2.squad[10].number;
 
+// Вывод статистики на экран
 document.querySelector('#goals_home').innerHTML = statsHome.goals;
 document.querySelector('#goals_away').innerHTML = statsAway.goals;
 document.querySelector('#shots').previousElementSibling.innerHTML = statsHome.shots;
